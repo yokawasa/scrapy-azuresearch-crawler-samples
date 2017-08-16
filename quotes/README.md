@@ -3,10 +3,10 @@
 Web Scraping [Quotes to Scrape](http://quotes.toscrape.com/)'s quote list with [Scrapy](https://scrapy.org/) and indexing them with Azure Search
 
 ## Pre-requisites
-* Python3
-* Scrapy: You can install Scrapy and its dependencies from PyPI with "pip install Scrapy". For Scrapy installation, please see [this](https://doc.scrapy.org/en/latest/intro/install.html)
-* CosmosDB Account: You can create a DocumentDB database account using [the Azure portal](https://azure.microsoft.com/en-us/documentation/articles/documentdb-create-account/), or [Azure Resource Manager templates and Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/documentdb-automation-resource-manager-cli/)
-* AzureSearch Account: You can spin up an Azure Search service in the [Azure portal](https://docs.microsoft.com/en-us/azure/search/search-create-service-portal) or through the [Azure Resource Management API](https://docs.microsoft.com/en-us/rest/api/searchmanagement/). 
+* **Python3**
+* **Scrapy**: You can install Scrapy and its dependencies from PyPI with "pip install Scrapy". For Scrapy installation, please see [this](https://doc.scrapy.org/en/latest/intro/install.html)
+* **CosmosDB Account**: You can create a DocumentDB database account using [the Azure portal](https://azure.microsoft.com/en-us/documentation/articles/documentdb-create-account/), or [Azure Resource Manager templates and Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/documentdb-automation-resource-manager-cli/)
+* **AzureSearch Account**: You can spin up an Azure Search service in the [Azure portal](https://docs.microsoft.com/en-us/azure/search/search-create-service-portal) or through the [Azure Resource Management API](https://docs.microsoft.com/en-us/rest/api/searchmanagement/). 
 
 ## Configurations
 ### Scrapy settings.py
