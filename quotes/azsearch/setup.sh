@@ -7,6 +7,8 @@ $cwd/create-index.sh
 
 $cwd/create-datasource.sh
 
+$cwd/create-docdb-init-dbcol.sh
+
 $cwd/create-indexer.sh
 
 echo "All done!"

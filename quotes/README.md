@@ -4,9 +4,16 @@ Web Scraping [Quotes to Scrape](http://quotes.toscrape.com/)'s quote list with [
 
 ## Pre-requisites
 * **Python3**
-* **Scrapy**: You can install Scrapy and its dependencies from PyPI with "pip install Scrapy". For Scrapy installation, please see [this](https://doc.scrapy.org/en/latest/intro/install.html)
+* **Scrapy**: You can install Scrapy and its dependencies from PyPI with "pip install Scrapy". For Scrapy installation, see also [this](https://doc.scrapy.org/en/latest/intro/install.html)
+* **pydocumentdb**: You can install pydocumentdb and its dependencies from PyPI with "pip install pydocumentdb". For pydocumentdb installation, see also [this](https://github.com/Azure/azure-documentdb-python)
 * **CosmosDB Account**: You can create a DocumentDB database account using [the Azure portal](https://azure.microsoft.com/en-us/documentation/articles/documentdb-create-account/), or [Azure Resource Manager templates and Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/documentdb-automation-resource-manager-cli/)
 * **AzureSearch Account**: You can spin up an Azure Search service in the [Azure portal](https://docs.microsoft.com/en-us/azure/search/search-create-service-portal) or through the [Azure Resource Management API](https://docs.microsoft.com/en-us/rest/api/searchmanagement/). 
+
+As explain above, you can install Scrapy and pydocumentdb python pakcage with PyPI like this:
+```
+pip install Scrapy
+pip install pydocumentdb
+```
 
 ## Configurations
 ### Scrapy settings.py
@@ -15,10 +22,10 @@ Web Scraping [Quotes to Scrape](http://quotes.toscrape.com/)'s quote list with [
 LOG_FILE = '/tmp/scrapy-quotespider.log'
 
 # CosmosDB (DocumentDB) Configuration
-DOCDB_HOST = 'https://yoichikademo1.documents.azure.com:443/'
-DOCDB_DB = 'feeddb'
-DOCDB_COLLECTION = 'feedcoll'
-DOCDB_MASTER_KEY = 'xaxYsAtJ1qYfzwo9nQ3KudofsXNm3xLh1SLffKkUHMFl80OZRZIVu4lxdKRKxkgVAj0c2mv9BZSyMN7tdg=='
+DOCDB_HOST = 'https://<DocumentDB_Account_Name>.documents.azure.com:443/'
+DOCDB_DB = '<DocumentDB Database Name>'
+DOCDB_COLLECTION = '<DocumentDB Collection Name>'
+DOCDB_MASTER_KEY = '<DocumentDB Master Key>'
 ```
 
 ### AzureSearch Index Schema and Indexer
@@ -49,7 +56,7 @@ DOCDB_COLLECTION='quotescoll'
 DOCDB_MASTER_KEY='EMwUa3EzsstJ1qYfzwo9nQ3KudofsXNm3xLh1SLffKkUHMFl80OZRZIVu4lxdKRKxkgVAj0c2mv9BZSyMN7tdg=='
 ```
 
-Then, execute 3 scripts in the following order
+Then, execute 4 scripts in the following order
 ```
 # (1) Create Azure Search Index
 ./create-index.sh
@@ -57,7 +64,10 @@ Then, execute 3 scripts in the following order
 # (2) Create Data source for Azure Search Indexer
 ./create-datasource.sh
 
-# (3) Create Azure Search Indexer
+# (3) Create DocuemtnDB Database and Collection
+./create-docdb-init-dbcol.sh
+
+# (4) Create Azure Search Indexer
 ./create-indexer.sh
 ```
 
